@@ -1,0 +1,54 @@
+.l100-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.l100-input__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.l100-input {
+  font-family: inherit;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.l100-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.l100-input--small {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.l100-input--medium {
+  padding: 10px 14px;
+  font-size: 16px;
+}
+
+.l100-input--large {
+  padding: 12px 16px;
+  font-size: 18px;
+}
+
+.l100-input--error {
+  border-color: #ef4444;
+}
+
+.l100-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.l100-input__error {
+  font-size: 13px;
+  color: #ef4444;
+}

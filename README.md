@@ -2,46 +2,86 @@
 
 Parent organization — shared components, design system, branding, and documentation hub.
 
-## About
-
-Level 100 Studios is the creative umbrella under which MasterClaw and related projects live.
-
-## Brand
-
-### Logo
-Coming soon — geometric, modern, tech-forward
-
-### Colors
-- **Primary:** `#6366f1` (Indigo)
-- **Secondary:** `#818cf8` (Light Indigo)
-- **Accent:** `#a78bfa` (Purple)
-- **Dark:** `#0f172a` (Slate 900)
-- **Light:** `#f8fafc` (Slate 50)
-
-### Typography
-- **Primary:** Inter, -apple-system, sans-serif
-- **Mono:** JetBrains Mono, Fira Code
-
-## Projects
-
-| Project | Description | Status |
-|---------|-------------|--------|
-| [MasterClawInterface](https://github.com/TheMasterClaw/MasterClawInterface) | The UI for your AI familiar | ✅ Active |
-| [masterclaw-infrastructure](https://github.com/TheMasterClaw/masterclaw-infrastructure) | Deployment & ops | ✅ Active |
-| [masterclaw-core](https://github.com/TheMasterClaw/masterclaw-core) | AI brain & LLM | ✅ Active |
-| [masterclaw-tools](https://github.com/TheMasterClaw/masterclaw-tools) | CLI utilities | ✅ Active |
-| [rex-deus](https://github.com/TheMasterClaw/rex-deus) | Personal configs (private) | ✅ Active |
-
 ## Design System
 
 ### Components
-Located in `/components` — shared React components for all projects.
 
-### Guidelines
-- Dark mode first
-- Privacy-focused copy
-- Emoji-friendly 🐾
-- Self-hosted messaging
+```jsx
+import { Button, Card, Input, Avatar } from '@level100/studios';
+
+// Button
+<Button variant="primary" size="medium" onClick={handleClick}>
+  Click me 🐾
+</Button>
+
+// Card
+<Card variant="elevated">
+  <CardHeader>Title</CardHeader>
+  <CardBody>Content here</CardBody>
+  <CardFooter>
+    <Button variant="secondary">Cancel</Button>
+    <Button variant="primary">Save</Button>
+  </CardFooter>
+</Card>
+
+// Avatar
+<Avatar state="thinking" size="large" />
+```
+
+### Design Tokens
+
+```js
+import tokens from '@level100/studios/design-tokens';
+
+// Colors
+console.log(tokens.colors.primary[500]); // #6366f1
+
+// Typography
+console.log(tokens.typography.fontSize.lg); // 1.125rem
+
+// Spacing
+console.log(tokens.spacing[4]); // 1rem
+```
+
+## Brand
+
+### Colors
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| Primary 500 | `#6366f1` | Main brand color |
+| Primary 400 | `#818cf8` | Hover states |
+| Secondary 400 | `#a78bfa` | Accents |
+| Dark BG | `#0f172a` | Background |
+| Dark Surface | `#1e293b` | Cards, surfaces |
+
+### Voice
+
+- **Confident** but not arrogant
+- **Capable** but approachable
+- **Tech-forward** but human
+
+See [brand/guidelines.md](./brand/guidelines.md)
+
+## Structure
+
+```
+.
+├── components/          # React components
+│   ├── Button/
+│   ├── Card/
+│   ├── Input/
+│   └── Avatar/
+├── design-tokens/       # Colors, typography, spacing
+├── brand/              # Logo, guidelines, voice
+└── docs/               # Documentation
+```
+
+## Related
+
+- [MasterClawInterface](https://github.com/TheMasterClaw/MasterClawInterface)
+- [masterclaw-infrastructure](https://github.com/TheMasterClaw/masterclaw-infrastructure)
+- [masterclaw-core](https://github.com/TheMasterClaw/masterclaw-core)
 
 ---
 

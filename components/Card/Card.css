@@ -1,0 +1,37 @@
+.l100-card {
+  border-radius: 12px;
+  background: #1e293b;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.l100-card--default {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.l100-card--elevated {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.l100-card--outlined {
+  border: 2px solid #6366f1;
+  background: transparent;
+}
+
+.l100-card__header {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+
+.l100-card__body {
+  padding: 20px;
+}
+
+.l100-card__footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}

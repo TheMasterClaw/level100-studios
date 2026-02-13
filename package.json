@@ -1,0 +1,27 @@
+{
+  "name": "@level100/studios",
+  "version": "0.1.0",
+  "description": "Level 100 Studios Design System - Components and design tokens for MasterClaw ecosystem",
+  "main": "components/index.js",
+  "files": [
+    "components/",
+    "design-tokens/",
+    "brand/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "design-system",
+    "components",
+    "react",
+    "level100",
+    "masterclaw"
+  ],
+  "author": "Rex deus",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  }
+}
