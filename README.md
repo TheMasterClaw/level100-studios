@@ -7,7 +7,7 @@ Parent organization — shared components, design system, branding, and document
 ### Components
 
 ```jsx
-import { Button, Card, Input, Avatar } from '@level100/studios';
+import { Button, Card, Input, Avatar, Badge } from '@level100/studios';
 
 // Button
 <Button variant="primary" size="medium" onClick={handleClick}>
@@ -26,6 +26,15 @@ import { Button, Card, Input, Avatar } from '@level100/studios';
 
 // Avatar
 <Avatar state="thinking" size="large" />
+
+// Badge - Status indicator
+<Badge variant="success">Active</Badge>
+<Badge variant="error" size="small">Failed</Badge>
+<Badge variant="primary" pill>New</Badge>
+
+// Badge - Dot indicator
+<Badge variant="success" dot />  {/* Online status */}
+<Badge variant="warning" dot size="small" />  {/* Warning state */}
 ```
 
 ### Design Tokens
@@ -71,7 +80,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Button/
 │   ├── Card/
 │   ├── Input/
-│   └── Avatar/
+│   ├── Avatar/
+│   └── Badge/          # Status indicators and labels
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
