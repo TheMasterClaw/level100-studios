@@ -7,7 +7,7 @@ Parent organization — shared components, design system, branding, and document
 ### Components
 
 ```jsx
-import { Button, Card, Input, Avatar, Badge } from '@level100/studios';
+import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, ModalFooter } from '@level100/studios';
 
 // Button
 <Button variant="primary" size="medium" onClick={handleClick}>
@@ -35,6 +35,33 @@ import { Button, Card, Input, Avatar, Badge } from '@level100/studios';
 // Badge - Dot indicator
 <Badge variant="success" dot />  {/* Online status */}
 <Badge variant="warning" dot size="small" />  {/* Warning state */}
+
+// Modal - Basic usage
+<Modal isOpen={isOpen} onClose={handleClose} size="medium">
+  <ModalHeader>
+    <h2>Confirm Action</h2>
+  </ModalHeader>
+  <ModalBody>
+    <p>Are you sure you want to proceed? This action cannot be undone.</p>
+  </ModalBody>
+  <ModalFooter>
+    <Button variant="ghost" onClick={handleClose}>Cancel</Button>
+    <Button variant="primary" onClick={handleConfirm}>Confirm</Button>
+  </ModalFooter>
+</Modal>
+
+// Modal - Fullscreen for detailed content
+<Modal isOpen={isOpen} onClose={handleClose} size="fullscreen">
+  <ModalHeader>
+    <h2>Detailed View</h2>
+  </ModalHeader>
+  <ModalBody>
+    {/* Large content here */}
+  </ModalBody>
+  <ModalFooter>
+    <Button variant="secondary" onClick={handleClose}>Close</Button>
+  </ModalFooter>
+</Modal>
 ```
 
 ### Design Tokens
@@ -81,7 +108,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Card/
 │   ├── Input/
 │   ├── Avatar/
-│   └── Badge/          # Status indicators and labels
+│   ├── Badge/          # Status indicators and labels
+│   └── Modal/          # Dialog and overlay component
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation

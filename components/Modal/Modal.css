@@ -1,0 +1,220 @@
+/* Modal Component Styles */
+
+/* Backdrop overlay */
+.l100-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: l100-modal-fade-in 0.2s ease-out;
+}
+
+/* Modal container */
+.l100-modal {
+  background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(99, 102, 241, 0.1);
+  position: relative;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: l100-modal-slide-in 0.3s ease-out;
+}
+
+/* Size variants */
+.l100-modal--small {
+  width: 100%;
+  max-width: 400px;
+}
+
+.l100-modal--medium {
+  width: 100%;
+  max-width: 560px;
+}
+
+.l100-modal--large {
+  width: 100%;
+  max-width: 800px;
+}
+
+.l100-modal--fullscreen {
+  width: 95vw;
+  height: 90vh;
+  max-width: none;
+}
+
+/* Close button */
+.l100-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.l100-modal__close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+.l100-modal__close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* Header section */
+.l100-modal__header {
+  padding: 1.5rem 1.5rem 0.75rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  flex-shrink: 0;
+}
+
+.l100-modal__header h2,
+.l100-modal__header h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Body section */
+.l100-modal__body {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* Footer section */
+.l100-modal__footer {
+  padding: 0.75rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.l100-modal__footer--center {
+  justify-content: center;
+}
+
+.l100-modal__footer--between {
+  justify-content: space-between;
+}
+
+/* Animations */
+@keyframes l100-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes l100-modal-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .l100-modal__backdrop {
+    padding: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .l100-modal {
+    border-radius: 12px 12px 0 0;
+    max-height: 95vh;
+    animation: l100-modal-slide-up 0.3s ease-out;
+  }
+
+  .l100-modal--small,
+  .l100-modal--medium,
+  .l100-modal--large {
+    max-width: 100%;
+  }
+
+  .l100-modal__header {
+    padding: 1.25rem 1.25rem 0.5rem;
+  }
+
+  .l100-modal__body {
+    padding: 1rem 1.25rem;
+  }
+
+  .l100-modal__footer {
+    padding: 0.5rem 1.25rem 1.25rem;
+    flex-direction: column-reverse;
+  }
+
+  .l100-modal__footer > * {
+    width: 100%;
+  }
+}
+
+@keyframes l100-modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus visible styles for accessibility */
+.l100-modal__close:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling for modal body */
+.l100-modal__body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.l100-modal__body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.l100-modal__body::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.5);
+  border-radius: 4px;
+}
+
+.l100-modal__body::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.7);
+}
