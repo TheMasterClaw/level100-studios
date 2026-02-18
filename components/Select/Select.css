@@ -1,0 +1,310 @@
+.l100-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.l100-select__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.l100-select {
+  position: relative;
+  font-family: inherit;
+}
+
+.l100-select:focus {
+  outline: none;
+}
+
+.l100-select__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.l100-select:focus .l100-select__trigger,
+.l100-select--open .l100-select__trigger {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.l100-select--error .l100-select__trigger {
+  border-color: #ef4444;
+}
+
+.l100-select--error:focus .l100-select__trigger,
+.l100-select--error.l100-select--open .l100-select__trigger {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.l100-select--disabled .l100-select__trigger {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+/* Sizes */
+.l100-select--small .l100-select__trigger {
+  padding: 8px 12px;
+  font-size: 14px;
+  min-height: 36px;
+}
+
+.l100-select--medium .l100-select__trigger {
+  padding: 10px 14px;
+  font-size: 16px;
+  min-height: 44px;
+}
+
+.l100-select--large .l100-select__trigger {
+  padding: 12px 16px;
+  font-size: 18px;
+  min-height: 52px;
+}
+
+.l100-select__value {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.l100-select__value--placeholder {
+  color: #64748b;
+}
+
+.l100-select__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.l100-select__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.l100-select__search {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  padding: 0;
+}
+
+.l100-select__search::placeholder {
+  color: #64748b;
+}
+
+.l100-select__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.l100-select__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.l100-select__clear:hover {
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.l100-select__clear svg {
+  width: 16px;
+  height: 16px;
+}
+
+.l100-select__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: transform 0.2s ease;
+}
+
+.l100-select__arrow svg {
+  width: 16px;
+  height: 16px;
+}
+
+.l100-select__arrow--open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.l100-select__dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.15s ease;
+}
+
+.l100-select__dropdown--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Scrollbar styling */
+.l100-select__dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.l100-select__dropdown::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px;
+}
+
+.l100-select__dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.l100-select__dropdown::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Options */
+.l100-select__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: #e2e8f0;
+}
+
+.l100-select__option:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.l100-select__option:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.l100-select__option:hover:not(.l100-select__option--disabled),
+.l100-select__option--highlighted:not(.l100-select__option--disabled) {
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.l100-select__option--selected {
+  background: rgba(99, 102, 241, 0.25);
+  color: #818cf8;
+}
+
+.l100-select__option--selected:hover,
+.l100-select__option--selected.l100-select__option--highlighted {
+  background: rgba(99, 102, 241, 0.35);
+}
+
+.l100-select__option--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.l100-select__option-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.l100-select__option-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.l100-select__option-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.l100-select__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #818cf8;
+  flex-shrink: 0;
+}
+
+.l100-select__check svg {
+  width: 16px;
+  height: 16px;
+}
+
+.l100-select__empty {
+  padding: 20px 14px;
+  text-align: center;
+  color: #64748b;
+  font-style: italic;
+}
+
+.l100-select__error {
+  font-size: 13px;
+  color: #ef4444;
+}
+
+/* Animation for option appearance */
+@keyframes l100-select-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.l100-select__dropdown--open .l100-select__option {
+  animation: l100-select-fade-in 0.15s ease forwards;
+}
+
+.l100-select__dropdown--open .l100-select__option:nth-child(1) { animation-delay: 0ms; }
+.l100-select__dropdown--open .l100-select__option:nth-child(2) { animation-delay: 20ms; }
+.l100-select__dropdown--open .l100-select__option:nth-child(3) { animation-delay: 40ms; }
+.l100-select__dropdown--open .l100-select__option:nth-child(4) { animation-delay: 60ms; }
+.l100-select__dropdown--open .l100-select__option:nth-child(5) { animation-delay: 80ms; }

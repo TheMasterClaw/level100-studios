@@ -7,7 +7,11 @@ Parent organization — shared components, design system, branding, and document
 ### Components
 
 ```jsx
-import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Tooltip, ToastProvider, useToastContext, Spinner } from '@level100/studios';
+import { 
+  Button, Card, Input, Select, Avatar, Badge, 
+  Modal, ModalHeader, ModalBody, ModalFooter, 
+  Tooltip, ToastProvider, useToastContext, Spinner 
+} from '@level100/studios';
 
 // Button
 <Button variant="primary" size="medium" onClick={handleClick}>
@@ -23,6 +27,43 @@ import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, Moda
     <Button variant="primary">Save</Button>
   </CardFooter>
 </Card>
+
+// Select - Basic dropdown
+<Select
+  label="Choose a model"
+  value={selectedModel}
+  onChange={setSelectedModel}
+  options={[
+    { value: 'gpt-4', label: 'GPT-4' },
+    { value: 'gpt-3.5', label: 'GPT-3.5 Turbo' },
+    { value: 'claude', label: 'Claude 3' },
+  ]}
+  placeholder="Select a model..."
+/>
+
+// Select - With icons and clear button
+<Select
+  label="Environment"
+  value={env}
+  onChange={setEnv}
+  options={[
+    { value: 'dev', label: 'Development', icon: '🔧' },
+    { value: 'staging', label: 'Staging', icon: '🧪' },
+    { value: 'prod', label: 'Production', icon: '🚀' },
+  ]}
+  clearable
+/>
+
+// Select - Searchable
+<Select
+  label="Search users"
+  value={userId}
+  onChange={setUserId}
+  onSearch={handleUserSearch}
+  options={users}
+  searchable
+  placeholder="Type to search..."
+/>
 
 // Avatar
 <Avatar state="thinking" size="large" />
@@ -183,6 +224,7 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Button/
 │   ├── Card/
 │   ├── Input/
+│   ├── Select/         # Dropdown selection component
 │   ├── Avatar/
 │   ├── Badge/          # Status indicators and labels
 │   ├── Modal/          # Dialog and overlay component
