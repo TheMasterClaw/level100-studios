@@ -7,7 +7,7 @@ Parent organization — shared components, design system, branding, and document
 ### Components
 
 ```jsx
-import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Tooltip } from '@level100/studios';
+import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Tooltip, ToastProvider, useToastContext } from '@level100/studios';
 
 // Button
 <Button variant="primary" size="medium" onClick={handleClick}>
@@ -98,6 +98,37 @@ import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, Moda
 <Tooltip content="Something went wrong" variant="error">
   <Badge variant="error">✗</Badge>
 </Tooltip>
+
+// Toast - Wrap app with ToastProvider
+function App() {
+  return (
+    <ToastProvider position="top-right" maxToasts={5}>
+      <YourApp />
+    </ToastProvider>
+  );
+}
+
+// Toast - Use in any component
+function MyComponent() {
+  const { showSuccess, showError, showWarning, showInfo } = useToastContext();
+  
+  const handleSave = async () => {
+    try {
+      await saveData();
+      showSuccess('Changes saved successfully');
+    } catch (err) {
+      showError('Failed to save changes');
+    }
+  };
+  
+  return <Button onClick={handleSave}>Save</Button>;
+}
+
+// Toast - With titles and custom duration
+showSuccess('Profile updated', 'Success!', { duration: 3000 });
+showError('Connection failed', 'Network Error', { duration: 10000 });
+showWarning('Session expires in 5 minutes');
+showInfo('New version available', 'Update', { duration: 8000 });
 ```
 
 ### Design Tokens
@@ -146,7 +177,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Avatar/
 │   ├── Badge/          # Status indicators and labels
 │   ├── Modal/          # Dialog and overlay component
-│   └── Tooltip/        # Hover information tooltips
+│   ├── Tooltip/        # Hover information tooltips
+│   └── Toast/          # Notification toasts and alerts
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
