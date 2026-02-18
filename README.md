@@ -7,7 +7,7 @@ Parent organization — shared components, design system, branding, and document
 ### Components
 
 ```jsx
-import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Tooltip, ToastProvider, useToastContext } from '@level100/studios';
+import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Tooltip, ToastProvider, useToastContext, Spinner } from '@level100/studios';
 
 // Button
 <Button variant="primary" size="medium" onClick={handleClick}>
@@ -129,6 +129,15 @@ showSuccess('Profile updated', 'Success!', { duration: 3000 });
 showError('Connection failed', 'Network Error', { duration: 10000 });
 showWarning('Session expires in 5 minutes');
 showInfo('New version available', 'Update', { duration: 8000 });
+
+// Spinner - Loading indicator
+<Spinner />                                    // Default medium spinner
+<Spinner size="small" />                       // Small spinner for inline use
+<Spinner size="large" />                       // Large spinner for page loading
+<Spinner variant="primary" />                  // Primary color spinner
+<Spinner variant="success" label="Saving..." /> // With label
+<Spinner centered />                           // Centered in container
+<Spinner variant="light" centered label="Loading..." /> // Light variant, centered with label
 ```
 
 ### Design Tokens
@@ -178,7 +187,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Badge/          # Status indicators and labels
 │   ├── Modal/          # Dialog and overlay component
 │   ├── Tooltip/        # Hover information tooltips
-│   └── Toast/          # Notification toasts and alerts
+│   ├── Toast/          # Notification toasts and alerts
+│   └── Spinner/        # Loading indicators
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation

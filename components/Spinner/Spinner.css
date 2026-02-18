@@ -1,0 +1,161 @@
+.l100-spinner {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.l100-spinner--centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100px;
+}
+
+/* Spinner Ring Container */
+.l100-spinner__ring {
+  position: relative;
+  display: inline-block;
+}
+
+/* Spinner Circles */
+.l100-spinner__circle {
+  position: absolute;
+  border-radius: 50%;
+  animation: l100-spinner-rotate 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.l100-spinner__circle:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.l100-spinner__circle:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.l100-spinner__circle:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+/* Size Variants */
+.l100-spinner--small .l100-spinner__ring {
+  width: 16px;
+  height: 16px;
+}
+
+.l100-spinner--small .l100-spinner__circle {
+  width: 4px;
+  height: 4px;
+}
+
+.l100-spinner--medium .l100-spinner__ring {
+  width: 24px;
+  height: 24px;
+}
+
+.l100-spinner--medium .l100-spinner__circle {
+  width: 6px;
+  height: 6px;
+}
+
+.l100-spinner--large .l100-spinner__ring {
+  width: 40px;
+  height: 40px;
+}
+
+.l100-spinner--large .l100-spinner__circle {
+  width: 10px;
+  height: 10px;
+}
+
+/* Color Variants */
+.l100-spinner--default .l100-spinner__circle {
+  background: #6366f1;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+}
+
+.l100-spinner--primary .l100-spinner__circle {
+  background: #818cf8;
+  box-shadow: 0 0 8px rgba(129, 140, 248, 0.4);
+}
+
+.l100-spinner--success .l100-spinner__circle {
+  background: #22c55e;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+.l100-spinner--warning .l100-spinner__circle {
+  background: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.l100-spinner--error .l100-spinner__circle {
+  background: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+.l100-spinner--light .l100-spinner__circle {
+  background: #f1f5f9;
+  box-shadow: 0 0 8px rgba(241, 245, 249, 0.4);
+}
+
+/* Label */
+.l100-spinner__label {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.l100-spinner--default .l100-spinner__label,
+.l100-spinner--primary .l100-spinner__label,
+.l100-spinner--success .l100-spinner__label,
+.l100-spinner--warning .l100-spinner__label,
+.l100-spinner--error .l100-spinner__label {
+  color: #94a3b8;
+}
+
+.l100-spinner--light .l100-spinner__label {
+  color: #cbd5e1;
+}
+
+/* Size-specific label adjustments */
+.l100-spinner--small .l100-spinner__label {
+  font-size: 11px;
+}
+
+.l100-spinner--large .l100-spinner__label {
+  font-size: 14px;
+}
+
+/* Animation */
+@keyframes l100-spinner-rotate {
+  0% {
+    transform: rotate(0deg) translateY(-50%);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .l100-spinner__circle {
+    animation-duration: 2.4s;
+  }
+}
+
+/* Inline spinner for button/form integration */
+.l100-spinner--inline {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.l100-spinner--inline .l100-spinner__label {
+  font-size: inherit;
+}

@@ -9,3 +9,4 @@ export { default as Toast } from './Toast/Toast.jsx';
 export { default as ToastContainer } from './Toast/ToastContainer.jsx';
 export { ToastProvider, useToastContext } from './Toast/ToastProvider.jsx';
 export { useToast } from './Toast/useToast.js';
+export { default as Spinner } from './Spinner/Spinner.jsx';
