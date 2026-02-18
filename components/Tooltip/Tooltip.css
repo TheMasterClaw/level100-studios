@@ -1,0 +1,218 @@
+.l100-tooltip__trigger {
+  display: inline-flex;
+  cursor: help;
+}
+
+.l100-tooltip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 250px;
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.l100-tooltip--visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.l100-tooltip__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Variants */
+.l100-tooltip--default {
+  background: #1e293b;
+  color: #f1f5f9;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.l100-tooltip--light {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.l100-tooltip--dark {
+  background: #0f172a;
+  color: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.l100-tooltip--primary {
+  background: rgba(99, 102, 241, 0.95);
+  color: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.5);
+}
+
+.l100-tooltip--success {
+  background: rgba(34, 197, 94, 0.95);
+  color: #ffffff;
+  border: 1px solid rgba(34, 197, 94, 0.5);
+}
+
+.l100-tooltip--warning {
+  background: rgba(245, 158, 11, 0.95);
+  color: #ffffff;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+}
+
+.l100-tooltip--error {
+  background: rgba(239, 68, 68, 0.95);
+  color: #ffffff;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+}
+
+/* Arrow */
+.l100-tooltip__arrow {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  transform: rotate(45deg);
+}
+
+.l100-tooltip__arrow--top {
+  bottom: -4px;
+}
+
+.l100-tooltip__arrow--bottom {
+  top: -4px;
+}
+
+.l100-tooltip__arrow--left {
+  right: -4px;
+}
+
+.l100-tooltip__arrow--right {
+  left: -4px;
+}
+
+/* Arrow colors - default */
+.l100-tooltip--default .l100-tooltip__arrow {
+  background: #1e293b;
+  border-right: 1px solid rgba(148, 163, 184, 0.2);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.l100-tooltip--default .l100-tooltip__arrow--top {
+  border-right: 1px solid rgba(148, 163, 184, 0.2);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.l100-tooltip--default .l100-tooltip__arrow--bottom {
+  border-left: 1px solid rgba(148, 163, 184, 0.2);
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  border-right: none;
+  border-bottom: none;
+}
+
+.l100-tooltip--default .l100-tooltip__arrow--left {
+  border-right: 1px solid rgba(148, 163, 184, 0.2);
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  border-bottom: none;
+}
+
+.l100-tooltip--default .l100-tooltip__arrow--right {
+  border-left: 1px solid rgba(148, 163, 184, 0.2);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  border-right: none;
+  border-top: none;
+}
+
+/* Arrow colors - light */
+.l100-tooltip--light .l100-tooltip__arrow {
+  background: #ffffff;
+}
+
+.l100-tooltip--light .l100-tooltip__arrow--top {
+  border-right: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.l100-tooltip--light .l100-tooltip__arrow--bottom {
+  border-left: 1px solid rgba(148, 163, 184, 0.3);
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
+  border-right: none;
+  border-bottom: none;
+}
+
+.l100-tooltip--light .l100-tooltip__arrow--left {
+  border-right: 1px solid rgba(148, 163, 184, 0.3);
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: none;
+}
+
+.l100-tooltip--light .l100-tooltip__arrow--right {
+  border-left: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+  border-right: none;
+  border-top: none;
+}
+
+/* Arrow colors - dark */
+.l100-tooltip--dark .l100-tooltip__arrow {
+  background: #0f172a;
+}
+
+.l100-tooltip--dark .l100-tooltip__arrow--top {
+  border-right: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.l100-tooltip--dark .l100-tooltip__arrow--bottom {
+  border-left: 1px solid rgba(148, 163, 184, 0.3);
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
+  border-right: none;
+  border-bottom: none;
+}
+
+.l100-tooltip--dark .l100-tooltip__arrow--left {
+  border-right: 1px solid rgba(148, 163, 184, 0.3);
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: none;
+}
+
+.l100-tooltip--dark .l100-tooltip__arrow--right {
+  border-left: 1px solid rgba(148, 163, 184, 0.3);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+  border-right: none;
+  border-top: none;
+}
+
+/* Arrow colors - semantic variants */
+.l100-tooltip--primary .l100-tooltip__arrow,
+.l100-tooltip--success .l100-tooltip__arrow,
+.l100-tooltip--warning .l100-tooltip__arrow,
+.l100-tooltip--error .l100-tooltip__arrow {
+  background: inherit;
+  border: none;
+}
+
+.l100-tooltip--primary .l100-tooltip__arrow {
+  background: rgba(99, 102, 241, 0.95);
+}
+
+.l100-tooltip--success .l100-tooltip__arrow {
+  background: rgba(34, 197, 94, 0.95);
+}
+
+.l100-tooltip--warning .l100-tooltip__arrow {
+  background: rgba(245, 158, 11, 0.95);
+}
+
+.l100-tooltip--error .l100-tooltip__arrow {
+  background: rgba(239, 68, 68, 0.95);
+}

@@ -7,7 +7,7 @@ Parent organization — shared components, design system, branding, and document
 ### Components
 
 ```jsx
-import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, ModalFooter } from '@level100/studios';
+import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, ModalFooter, Tooltip } from '@level100/studios';
 
 // Button
 <Button variant="primary" size="medium" onClick={handleClick}>
@@ -62,6 +62,42 @@ import { Button, Card, Input, Avatar, Badge, Modal, ModalHeader, ModalBody, Moda
     <Button variant="secondary" onClick={handleClose}>Close</Button>
   </ModalFooter>
 </Modal>
+
+// Tooltip - Basic usage
+<Tooltip content="Click to save your changes">
+  <Button variant="primary">Save</Button>
+</Tooltip>
+
+// Tooltip - Different placements
+<Tooltip content="Appears above" placement="top">
+  <span>Hover me (top)</span>
+</Tooltip>
+<Tooltip content="Appears below" placement="bottom">
+  <span>Hover me (bottom)</span>
+</Tooltip>
+<Tooltip content="Appears to the left" placement="left">
+  <span>Hover me (left)</span>
+</Tooltip>
+<Tooltip content="Appears to the right" placement="right">
+  <span>Hover me (right)</span>
+</Tooltip>
+
+// Tooltip - Variants
+<Tooltip content="Default style tooltip" variant="default">
+  <Button variant="secondary">Default</Button>
+</Tooltip>
+<Tooltip content="Light background tooltip" variant="light">
+  <Button variant="secondary">Light</Button>
+</Tooltip>
+<Tooltip content="Dark background tooltip" variant="dark">
+  <Button variant="secondary">Dark</Button>
+</Tooltip>
+<Tooltip content="Success!" variant="success">
+  <Badge variant="success">✓</Badge>
+</Tooltip>
+<Tooltip content="Something went wrong" variant="error">
+  <Badge variant="error">✗</Badge>
+</Tooltip>
 ```
 
 ### Design Tokens
@@ -109,7 +145,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Input/
 │   ├── Avatar/
 │   ├── Badge/          # Status indicators and labels
-│   └── Modal/          # Dialog and overlay component
+│   ├── Modal/          # Dialog and overlay component
+│   └── Tooltip/        # Hover information tooltips
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
