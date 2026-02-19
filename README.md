@@ -530,6 +530,37 @@ const x = 1;
   ]}
 />
 
+// Pagination - Navigate paginated content
+<Pagination                                             // Basic pagination
+  currentPage={1}
+  totalPages={10}
+  onPageChange={(page) => setPage(page)}
+/>
+
+<Pagination                                             // With items info
+  currentPage={3}
+  totalPages={20}
+  itemsPerPage={10}
+  totalItems={195}
+  onPageChange={setPage}
+/>
+
+<Pagination                                             // With items per page selector
+  currentPage={1}
+  totalPages={10}
+  itemsPerPage={25}
+  totalItems={250}
+  onPageChange={setPage}
+  onItemsPerPageChange={setItemsPerPage}
+  itemsPerPageOptions={[10, 25, 50, 100]}
+/>
+
+<Pagination.Simple                                     // Simple prev/next only
+  currentPage={2}
+  totalPages={5}
+  onPageChange={setPage}
+/>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -616,7 +647,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── EmptyState/     # Empty list/page states
 │   ├── Alert/          # Important messages and notifications
 │   ├── Timeline/       # Chronological events display
-│   └── Table/          # Tabular data display
+│   ├── Table/          # Tabular data display
+│   └── Pagination/     # Pagination navigation
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
