@@ -561,6 +561,33 @@ const x = 1;
   onPageChange={setPage}
 />
 
+// Menu - Dropdown menu for navigation and actions
+<Menu>                                                  // Basic menu
+  <Menu.Trigger>Open Menu</Menu.Trigger>
+  <Menu.Content>
+    <Menu.Item onClick={handleEdit}>Edit</Menu.Item>
+    <Menu.Item onClick={handleDelete}>Delete</Menu.Item>
+  </Menu.Content>
+</Menu>
+
+<Menu>                                                  // With icons
+  <Menu.Trigger>Actions</Menu.Trigger>
+  <Menu.Content>
+    <Menu.Item icon="✏️" onClick={handleEdit}>Edit</Menu.Item>
+    <Menu.Item icon="🗑️" onClick={handleDelete} variant="danger">Delete</Menu.Item>
+  </Menu.Content>
+</Menu>
+
+<Menu>                                                  // With separator and disabled
+  <Menu.Trigger>Options</Menu.Trigger>
+  <Menu.Content>
+    <Menu.Item onClick={handleView}>View</Menu.Item>
+    <Menu.Separator />
+    <Menu.Item onClick={handleShare}>Share</Menu.Item>
+    <Menu.Item disabled>Delete</Menu.Item>
+  </Menu.Content>
+</Menu>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -648,7 +675,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Alert/          # Important messages and notifications
 │   ├── Timeline/       # Chronological events display
 │   ├── Table/          # Tabular data display
-│   └── Pagination/     # Pagination navigation
+│   ├── Pagination/     # Pagination navigation
+│   └── Menu/           # Dropdown menus
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
