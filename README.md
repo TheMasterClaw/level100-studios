@@ -265,19 +265,34 @@ showInfo('New version available', 'Update', { duration: 8000 });
   </Accordion.Item>
 </Accordion>
 
-// Accordion - Multiple panels open
-<Accordion type="multiple" defaultOpen={['1']}>
-  <Accordion.Item id="1">
-    <Accordion.Trigger>FAQ Question 1</Accordion.Trigger>
-    <Accordion.Content>Answer to question 1...</Accordion.Content>
-  </Accordion.Item>
-</Accordion>
+// Tabs - Tabbed content interface
+<Tabs defaultValue="tab1">
+  <Tabs.List>
+    <Tabs.Trigger value="tab1">Tab 1</Tabs.Trigger>
+    <Tabs.Trigger value="tab2">Tab 2</Tabs.Trigger>
+    <Tabs.Trigger value="tab3">Tab 3</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="tab1">Content for tab 1</Tabs.Content>
+  <Tabs.Content value="tab2">Content for tab 2</Tabs.Content>
+  <Tabs.Content value="tab3">Content for tab 3</Tabs.Content>
+</Tabs>
 
-// Accordion - Simple data-driven API
-<Accordion.Simple
-  items={[
-    { id: '1', title: 'Section 1', content: 'Content 1' },
-    { id: '2', title: 'Section 2', content: 'Content 2' },
+// Tabs - Vertical orientation
+<Tabs orientation="vertical" defaultValue="tab1">
+  <Tabs.List>
+    <Tabs.Trigger value="tab1">Settings</Tabs.Trigger>
+    <Tabs.Trigger value="tab2">Profile</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="tab1">Settings content</Tabs.Content>
+  <Tabs.Content value="tab2">Profile content</Tabs.Content>
+</Tabs>
+
+// Tabs - Simple data-driven API
+<Tabs.Simple
+  tabs={[
+    { value: '1', label: 'Overview', content: 'Overview content' },
+    { value: '2', label: 'Details', content: 'Details content', badge: 3 },
+    { value: '3', label: 'Settings', content: 'Settings content', icon: '⚙️' },
   ]}
 />
 ```
@@ -335,7 +350,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Spinner/        # Loading indicators
 │   ├── Progress/       # Progress bars
 │   ├── Skeleton/       # Loading placeholders
-│   └── Accordion/      # Collapsible content sections
+│   ├── Accordion/      # Collapsible content sections
+│   └── Tabs/           # Tabbed content interface
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
