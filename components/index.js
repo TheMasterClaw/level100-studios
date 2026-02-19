@@ -19,3 +19,4 @@ export { default as Tabs } from './Tabs/Tabs.jsx';
 export { default as Divider } from './Divider/Divider.jsx';
 export { default as Kbd } from './Kbd/Kbd.jsx';
 export { default as Breadcrumbs } from './Breadcrumbs/Breadcrumbs.jsx';
+export { default as Chip } from './Chip/Chip.jsx';

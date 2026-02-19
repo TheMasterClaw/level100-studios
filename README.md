@@ -321,6 +321,25 @@ showInfo('New version available', 'Update', { duration: 8000 });
   <Breadcrumbs.Item href="/settings" icon="⚙️">Settings</Breadcrumbs.Item>
 </Breadcrumbs>
 
+// Chip - Labels, tags, and filters
+<Chip>Label</Chip>                              // Basic chip
+<Chip icon="🏷️">Category</Chip>                // With icon
+<Chip onRemove={handleRemove}>Filter</Chip>    // Removable
+<Chip onClick={handleClick} clickable>Tag</Chip> // Clickable
+<Chip variant="outlined">Outlined</Chip>     // Outlined style
+<Chip variant="ghost">Ghost</Chip>            // Ghost style
+<Chip color="primary">Primary</Chip>          // Primary color
+<Chip color="success">Success</Chip>          // Success color
+<Chip color="warning">Warning</Chip>          // Warning color
+<Chip color="error">Error</Chip>              // Error color
+<Chip size="sm">Small</Chip>                  // Small size
+<Chip size="lg">Large</Chip>                  // Large size
+<Chip.Group>                                 // Chip group
+  <Chip>Tag 1</Chip>
+  <Chip>Tag 2</Chip>
+  <Chip>Tag 3</Chip>
+</Chip.Group>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -398,7 +417,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Tabs/           # Tabbed content interface
 │   ├── Divider/        # Visual content separators
 │   ├── Kbd/            # Keyboard key representations
-│   └── Breadcrumbs/    # Navigation path indicators
+│   ├── Breadcrumbs/    # Navigation path indicators
+│   └── Chip/           # Labels, tags, and filters
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
