@@ -252,6 +252,34 @@ showInfo('New version available', 'Update', { duration: 8000 });
 <Skeleton.Article hasImage textLines={5} />   // Article layout
 <Skeleton.ListItem showAvatar lines={2} />    // List item layout
 <Skeleton animated={false} />                 // Disable animation
+
+// Accordion - Collapsible content sections
+<Accordion>
+  <Accordion.Item id="1">
+    <Accordion.Trigger>Section 1</Accordion.Trigger>
+    <Accordion.Content>Content for section 1</Accordion.Content>
+  </Accordion.Item>
+  <Accordion.Item id="2">
+    <Accordion.Trigger>Section 2</Accordion.Trigger>
+    <Accordion.Content>Content for section 2</Accordion.Content>
+  </Accordion.Item>
+</Accordion>
+
+// Accordion - Multiple panels open
+<Accordion type="multiple" defaultOpen={['1']}>
+  <Accordion.Item id="1">
+    <Accordion.Trigger>FAQ Question 1</Accordion.Trigger>
+    <Accordion.Content>Answer to question 1...</Accordion.Content>
+  </Accordion.Item>
+</Accordion>
+
+// Accordion - Simple data-driven API
+<Accordion.Simple
+  items={[
+    { id: '1', title: 'Section 1', content: 'Content 1' },
+    { id: '2', title: 'Section 2', content: 'Content 2' },
+  ]}
+/>
 ```
 
 ### Design Tokens
@@ -306,7 +334,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Toast/          # Notification toasts and alerts
 │   ├── Spinner/        # Loading indicators
 │   ├── Progress/       # Progress bars
-│   └── Skeleton/       # Loading placeholders
+│   ├── Skeleton/       # Loading placeholders
+│   └── Accordion/      # Collapsible content sections
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
