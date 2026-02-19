@@ -384,6 +384,21 @@ showInfo('New version available', 'Update', { duration: 8000 });
   <Checkbox value="business">Business</Checkbox>
 </CheckboxGroup>
 
+// Stat - Statistics and metrics display
+<Stat label="Total Users" value="12,345" />              // Basic stat
+<Stat label="Revenue" value="$45.2K"                     // With trend
+       trend="up" trendValue="12%" />
+<Stat label="Active Sessions" value="1,234"              // With helper text
+       helperText="In the last 24 hours" />
+<Stat size="lg" label="Total Revenue" value="$1.2M" />   // Large size
+<Stat size="sm" label="Bounce Rate" value="32%"          // Small size
+       trend="down" trendValue="5%" />
+<Stat.Group>                                            // Stat group
+  <Stat label="Users" value="12K" />
+  <Stat label="Revenue" value="$45K" trend="up" trendValue="12%" />
+  <Stat label="Growth" value="23%" trend="up" />
+</Stat.Group>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -464,7 +479,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Breadcrumbs/    # Navigation path indicators
 │   ├── Chip/           # Labels, tags, and filters
 │   ├── Radio/          # Single-select options
-│   └── Checkbox/       # Multi-select options
+│   ├── Checkbox/       # Multi-select options
+│   └── Stat/           # Statistics and metrics display
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
