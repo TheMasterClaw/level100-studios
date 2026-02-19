@@ -301,6 +301,26 @@ showInfo('New version available', 'Update', { duration: 8000 });
 <Kbd.Shortcut shift>Tab</Kbd.Shortcut>        // Shift+Tab
 <Kbd.Shortcut cmd shift>S</Kbd.Shortcut>      // ⌘⇧S or Ctrl+Shift+S
 
+// Breadcrumbs - Navigation path indicator
+<Breadcrumbs>
+  <Breadcrumbs.Item href="/">Home</Breadcrumbs.Item>
+  <Breadcrumbs.Item href="/products">Products</Breadcrumbs.Item>
+  <Breadcrumbs.Item current>Item</Breadcrumbs.Item>
+</Breadcrumbs>
+
+<Breadcrumbs                           // Data-driven
+  items={[
+    { label: 'Home', href: '/' },
+    { label: 'Category', href: '/category' },
+    { label: 'Item', current: true },
+  ]}
+/>
+
+<Breadcrumbs separator="›">            // Custom separator
+  <Breadcrumbs.Item href="/" icon="🏠">Home</Breadcrumbs.Item>
+  <Breadcrumbs.Item href="/settings" icon="⚙️">Settings</Breadcrumbs.Item>
+</Breadcrumbs>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -377,7 +397,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Accordion/      # Collapsible content sections
 │   ├── Tabs/           # Tabbed content interface
 │   ├── Divider/        # Visual content separators
-│   └── Kbd/            # Keyboard key representations
+│   ├── Kbd/            # Keyboard key representations
+│   └── Breadcrumbs/    # Navigation path indicators
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
