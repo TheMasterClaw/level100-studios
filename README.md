@@ -399,6 +399,20 @@ showInfo('New version available', 'Update', { duration: 8000 });
   <Stat label="Growth" value="23%" trend="up" />
 </Stat.Group>
 
+// Code - Inline code and code blocks
+Use the <Code>npm install</Code> command.            // Inline code
+
+<Code block>{`function greet() {                    // Code block
+  return "Hello, World!";
+}`}</Code>
+
+<Code block language="javascript" copyable>{`      // With language and copy
+const x = 1;
+`}</Code>
+
+<Code color="primary">primary</Code>                 // Color variants
+<Code color="success">success</Code>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -480,7 +494,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Chip/           # Labels, tags, and filters
 │   ├── Radio/          # Single-select options
 │   ├── Checkbox/       # Multi-select options
-│   └── Stat/           # Statistics and metrics display
+│   ├── Stat/           # Statistics and metrics display
+│   └── Code/           # Inline code and code blocks
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
