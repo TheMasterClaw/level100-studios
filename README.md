@@ -340,6 +340,23 @@ showInfo('New version available', 'Update', { duration: 8000 });
   <Chip>Tag 3</Chip>
 </Chip.Group>
 
+// Radio - Single-select options
+<RadioGroup name="size" defaultValue="md">
+  <Radio value="sm">Small</Radio>
+  <Radio value="md">Medium</Radio>
+  <Radio value="lg">Large</Radio>
+</RadioGroup>
+
+<RadioGroup name="plan" defaultValue="pro">  // With helper text
+  <Radio value="free" helperText="For individuals">Free</Radio>
+  <Radio value="pro" helperText="For teams">Pro</Radio>
+</RadioGroup>
+
+<RadioGroup orientation="horizontal" name="color" defaultValue="red">  // Horizontal
+  <Radio value="red">Red</Radio>
+  <Radio value="blue">Blue</Radio>
+</RadioGroup>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -418,7 +435,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Divider/        # Visual content separators
 │   ├── Kbd/            # Keyboard key representations
 │   ├── Breadcrumbs/    # Navigation path indicators
-│   └── Chip/           # Labels, tags, and filters
+│   ├── Chip/           # Labels, tags, and filters
+│   └── Radio/          # Single-select options
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
