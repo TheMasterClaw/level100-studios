@@ -1,0 +1,214 @@
+:root {
+  /* Switch Sizes */
+  --l100-switch-height-sm: 20px;
+  --l100-switch-width-sm: 36px;
+  --l100-switch-thumb-sm: 16px;
+  
+  --l100-switch-height-md: 24px;
+  --l100-switch-width-md: 44px;
+  --l100-switch-thumb-md: 20px;
+  
+  --l100-switch-height-lg: 32px;
+  --l100-switch-width-lg: 56px;
+  --l100-switch-thumb-lg: 28px;
+  
+  /* Colors */
+  --l100-switch-bg: #334155;
+  --l100-switch-bg-checked: #6366f1;
+  --l100-switch-bg-disabled: #1e293b;
+  --l100-switch-thumb-bg: #f8fafc;
+  --l100-switch-thumb-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  
+  /* Transitions */
+  --l100-switch-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --l100-switch-thumb-transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Switch Styles */
+.l100-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.l100-switch--label-left {
+  flex-direction: row-reverse;
+}
+
+.l100-switch__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Track (the background) */
+.l100-switch__track {
+  position: relative;
+  display: inline-block;
+  background-color: var(--l100-switch-bg);
+  border-radius: 9999px;
+  transition: var(--l100-switch-transition);
+  flex-shrink: 0;
+}
+
+/* Thumb (the circle that moves) */
+.l100-switch__thumb {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  background-color: var(--l100-switch-thumb-bg);
+  border-radius: 50%;
+  box-shadow: var(--l100-switch-thumb-shadow);
+  transition: var(--l100-switch-thumb-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Checked State */
+.l100-switch--checked .l100-switch__track {
+  background-color: var(--l100-switch-bg-checked);
+}
+
+/* Size Variants */
+.l100-switch--small .l100-switch__track {
+  width: var(--l100-switch-width-sm);
+  height: var(--l100-switch-height-sm);
+}
+
+.l100-switch--small .l100-switch__thumb {
+  width: var(--l100-switch-thumb-sm);
+  height: var(--l100-switch-thumb-sm);
+}
+
+.l100-switch--small.l100-switch--checked .l100-switch__thumb {
+  transform: translateY(-50%) translateX(16px);
+}
+
+.l100-switch--medium .l100-switch__track {
+  width: var(--l100-switch-width-md);
+  height: var(--l100-switch-height-md);
+}
+
+.l100-switch--medium .l100-switch__thumb {
+  width: var(--l100-switch-thumb-md);
+  height: var(--l100-switch-thumb-md);
+}
+
+.l100-switch--medium.l100-switch--checked .l100-switch__thumb {
+  transform: translateY(-50%) translateX(20px);
+}
+
+.l100-switch--large .l100-switch__track {
+  width: var(--l100-switch-width-lg);
+  height: var(--l100-switch-height-lg);
+}
+
+.l100-switch--large .l100-switch__thumb {
+  width: var(--l100-switch-thumb-lg);
+  height: var(--l100-switch-thumb-lg);
+}
+
+.l100-switch--large.l100-switch--checked .l100-switch__thumb {
+  transform: translateY(-50%) translateX(24px);
+}
+
+/* Disabled State */
+.l100-switch--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.l100-switch--disabled .l100-switch__track {
+  background-color: var(--l100-switch-bg-disabled);
+}
+
+.l100-switch--disabled.l100-switch--checked .l100-switch__track {
+  background-color: var(--l100-switch-bg-checked);
+  opacity: 0.5;
+}
+
+/* Loading State */
+.l100-switch--loading {
+  cursor: wait;
+}
+
+.l100-switch__spinner {
+  width: 60%;
+  height: 60%;
+  border: 2px solid transparent;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: l100-switch-spin 0.8s linear infinite;
+}
+
+@keyframes l100-switch-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Label Container */
+.l100-switch__label-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Label */
+.l100-switch__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #f1f5f9;
+  line-height: 1.25;
+}
+
+/* Helper Text */
+.l100-switch__helper {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* Focus States */
+.l100-switch__input:focus-visible + .l100-switch__track {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Hover States (only when not disabled/loading) */
+.l100-switch:not(.l100-switch--disabled):not(.l100-switch--loading):hover .l100-switch__track {
+  background-color: #475569;
+}
+
+.l100-switch:not(.l100-switch--disabled):not(.l100-switch--loading).l100-switch--checked:hover .l100-switch__track {
+  background-color: #818cf8;
+}
+
+/* Active/Press State */
+.l100-switch:not(.l100-switch--disabled):not(.l100-switch--loading):active .l100-switch__thumb {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.l100-switch:not(.l100-switch--disabled):not(.l100-switch--loading).l100-switch--checked:active .l100-switch__thumb {
+  transform: translateY(-50%) translateX(20px) scale(0.95);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .l100-switch__track,
+  .l100-switch__thumb {
+    transition: none;
+  }
+  
+  .l100-switch__spinner {
+    animation: none;
+  }
+}

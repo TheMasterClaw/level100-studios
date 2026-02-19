@@ -8,7 +8,7 @@ Parent organization — shared components, design system, branding, and document
 
 ```jsx
 import { 
-  Button, Card, Input, Select, Avatar, Badge, 
+  Button, Card, Input, Select, Switch, Avatar, Badge, 
   Modal, ModalHeader, ModalBody, ModalFooter, 
   Tooltip, ToastProvider, useToastContext, Spinner 
 } from '@level100/studios';
@@ -63,6 +63,53 @@ import {
   options={users}
   searchable
   placeholder="Type to search..."
+/>
+
+// Switch - Basic toggle
+<Switch
+  checked={darkMode}
+  onChange={setDarkMode}
+  label="Dark Mode"
+/>
+
+// Switch - With helper text and sizes
+<Switch
+  checked={notifications}
+  onChange={setNotifications}
+  label="Enable Notifications"
+  helperText="Receive alerts about important events"
+  size="medium"
+/>
+
+<Switch
+  checked={autoSave}
+  onChange={setAutoSave}
+  label="Auto-save"
+  size="small"
+/>
+
+<Switch
+  checked={betaFeatures}
+  onChange={setBetaFeatures}
+  label="Beta Features"
+  size="large"
+  labelPosition="left"
+/>
+
+// Switch - Loading and disabled states
+<Switch
+  checked={syncEnabled}
+  onChange={setSyncEnabled}
+  label="Sync Data"
+  loading={isSyncing}
+/>
+
+<Switch
+  checked={featureFlag}
+  onChange={setFeatureFlag}
+  label="Premium Feature"
+  disabled={!isPremium}
+  helperText="Upgrade to enable this feature"
 />
 
 // Avatar
@@ -225,6 +272,7 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Card/
 │   ├── Input/
 │   ├── Select/         # Dropdown selection component
+│   ├── Switch/         # Toggle switch component
 │   ├── Avatar/
 │   ├── Badge/          # Status indicators and labels
 │   ├── Modal/          # Dialog and overlay component
