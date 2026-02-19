@@ -21,3 +21,4 @@ export { default as Kbd } from './Kbd/Kbd.jsx';
 export { default as Breadcrumbs } from './Breadcrumbs/Breadcrumbs.jsx';
 export { default as Chip } from './Chip/Chip.jsx';
 export { RadioGroup, Radio } from './Radio/Radio.jsx';
+export { Checkbox, CheckboxGroup } from './Checkbox/Checkbox.jsx';

@@ -357,6 +357,33 @@ showInfo('New version available', 'Update', { duration: 8000 });
   <Radio value="blue">Blue</Radio>
 </RadioGroup>
 
+// Checkbox - Multi-select options
+<Checkbox checked={value} onChange={handleChange}>
+  Subscribe to newsletter
+</Checkbox>
+
+<Checkbox                                   // With helper text
+  checked={value}
+  onChange={handleChange}
+  helperText="Receive updates about new features"
+>
+  Enable notifications
+</Checkbox>
+
+<Checkbox indeterminate={true}>           // Indeterminate state
+  Select all
+</Checkbox>
+
+<CheckboxGroup                             // Checkbox group
+  name="interests"
+  defaultValue={['tech', 'design']}
+  onChange={(values) => console.log(values)}
+>
+  <Checkbox value="tech">Technology</Checkbox>
+  <Checkbox value="design">Design</Checkbox>
+  <Checkbox value="business">Business</Checkbox>
+</CheckboxGroup>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -436,7 +463,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Kbd/            # Keyboard key representations
 │   ├── Breadcrumbs/    # Navigation path indicators
 │   ├── Chip/           # Labels, tags, and filters
-│   └── Radio/          # Single-select options
+│   ├── Radio/          # Single-select options
+│   └── Checkbox/       # Multi-select options
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
