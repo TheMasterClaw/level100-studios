@@ -1,0 +1,201 @@
+/**
+ * Timeline Component Styles
+ *
+ * Design tokens used:
+ * --color-gray-200: Timeline line
+ * --color-gray-300: Default marker
+ * --color-gray-500: Timestamp
+ * --color-gray-700: Title
+ * --color-gray-900: Description
+ * --color-primary-500: Primary marker
+ * --color-success-500: Success marker
+ * --color-warning-500: Warning marker
+ * --color-error-500: Error marker
+ * --spacing-sm, md: Spacing
+ * --border-radius-full: Circular
+ */
+
+/* Timeline Container */
+.l100-timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+/* Vertical line */
+.l100-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-gray-200, #e2e8f0);
+}
+
+/* Timeline Item */
+.l100-timeline__item {
+  position: relative;
+  padding-bottom: var(--spacing-lg, 1.5rem);
+  display: flex;
+  gap: var(--spacing-md, 1rem);
+}
+
+.l100-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.l100-timeline__item:last-child .l100-timeline__marker::after {
+  display: none;
+}
+
+/* Timeline Marker */
+.l100-timeline__marker {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  margin-left: -1.5rem;
+  background-color: white;
+}
+
+/* Default Dot */
+.l100-timeline__dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  background-color: var(--color-gray-300, #cbd5e1);
+  border-radius: 50%;
+}
+
+/* Icon */
+.l100-timeline__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.875rem;
+  background-color: var(--color-gray-100, #f1f5f9);
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Timeline Content */
+.l100-timeline__content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.125rem;
+}
+
+/* Timeline Header */
+.l100-timeline__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--spacing-sm, 0.5rem);
+  margin-bottom: var(--spacing-xs, 0.25rem);
+}
+
+/* Timeline Title */
+.l100-timeline__title {
+  font-weight: 600;
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-gray-900, #0f172a);
+}
+
+/* Timeline Timestamp */
+.l100-timeline__timestamp {
+  font-size: var(--font-size-xs, 0.75rem);
+  color: var(--color-gray-500, #64748b);
+  white-space: nowrap;
+}
+
+/* Timeline Description */
+.l100-timeline__description {
+  margin: 0;
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-gray-600, #475569);
+  line-height: 1.5;
+}
+
+/* Type Variants */
+
+/* Success */
+.l100-timeline__item--success .l100-timeline__dot {
+  background-color: var(--color-success-500, #22c55e);
+}
+
+.l100-timeline__item--success .l100-timeline__icon {
+  background-color: var(--color-success-100, #dcfce7);
+}
+
+/* Warning */
+.l100-timeline__item--warning .l100-timeline__dot {
+  background-color: var(--color-warning-500, #f59e0b);
+}
+
+.l100-timeline__item--warning .l100-timeline__icon {
+  background-color: var(--color-warning-100, #fef3c7);
+}
+
+/* Error */
+.l100-timeline__item--error .l100-timeline__dot {
+  background-color: var(--color-error-500, #ef4444);
+}
+
+.l100-timeline__item--error .l100-timeline__icon {
+  background-color: var(--color-error-100, #fee2e2);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .l100-timeline::before {
+    background-color: var(--color-gray-700, #334155);
+  }
+
+  .l100-timeline__marker {
+    background-color: var(--color-gray-900, #0f172a);
+  }
+
+  .l100-timeline__dot {
+    background-color: var(--color-gray-600, #475569);
+  }
+
+  .l100-timeline__icon {
+    background-color: var(--color-gray-800, #1e293b);
+    border-color: var(--color-gray-900, #0f172a);
+  }
+
+  .l100-timeline__title {
+    color: var(--color-gray-100, #f1f5f9);
+  }
+
+  .l100-timeline__description {
+    color: var(--color-gray-400, #94a3b8);
+  }
+
+  .l100-timeline__timestamp {
+    color: var(--color-gray-500, #64748b);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .l100-timeline::before {
+    width: 3px;
+  }
+
+  .l100-timeline__dot {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .l100-timeline__item {
+    transition: none;
+  }
+}

@@ -461,6 +461,40 @@ const x = 1;
   <Alert severity="success">Second message</Alert>
 </Alert.Group>
 
+// Timeline - Chronological events
+<Timeline>                                                // Basic timeline
+  <Timeline.Item
+    title="Project started"
+    timestamp="2024-01-15"
+  />
+  <Timeline.Item
+    title="First milestone"
+    timestamp="2024-02-01"
+    description="Completed initial setup"
+  />
+</Timeline>
+
+<Timeline>                                                // With icons and types
+  <Timeline.Item
+    title="Deployed"
+    timestamp="2 hours ago"
+    type="success"
+    icon="🚀"
+  />
+  <Timeline.Item
+    title="Build failed"
+    timestamp="3 hours ago"
+    type="error"
+    icon="❌"
+  />
+  <Timeline.Item
+    title="Warning issued"
+    timestamp="5 hours ago"
+    type="warning"
+    icon="⚠️"
+  />
+</Timeline>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -545,7 +579,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Stat/           # Statistics and metrics display
 │   ├── Code/           # Inline code and code blocks
 │   ├── EmptyState/     # Empty list/page states
-│   └── Alert/          # Important messages and notifications
+│   ├── Alert/          # Important messages and notifications
+│   └── Timeline/       # Chronological events display
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
