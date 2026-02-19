@@ -413,6 +413,27 @@ const x = 1;
 <Code color="primary">primary</Code>                 // Color variants
 <Code color="success">success</Code>
 
+// EmptyState - Empty list/page state
+<EmptyState                                 // Basic empty state
+  icon="📭"
+  title="No messages"
+  description="Your inbox is empty"
+/>
+
+<EmptyState                                 // With action
+  icon="🔍"
+  title="No results found"
+  description="Try adjusting your search"
+  action={{ label: 'Clear search', onClick: handleClear }}
+/>
+
+<EmptyState size="sm" icon="📄" title="No documents" />  // Compact
+
+<EmptyState.Search query="test" onClear={clear} />       // Pre-built: search
+<EmptyState.List itemName="projects" onCreate={create} /> // Pre-built: list
+<EmptyState.Error message="Failed" onRetry={retry} />     // Pre-built: error
+<EmptyState.NotFound onBack={goBack} />                   // Pre-built: 404
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -495,7 +516,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Radio/          # Single-select options
 │   ├── Checkbox/       # Multi-select options
 │   ├── Stat/           # Statistics and metrics display
-│   └── Code/           # Inline code and code blocks
+│   ├── Code/           # Inline code and code blocks
+│   └── EmptyState/     # Empty list/page states
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation

@@ -24,3 +24,4 @@ export { RadioGroup, Radio } from './Radio/Radio.jsx';
 export { Checkbox, CheckboxGroup } from './Checkbox/Checkbox.jsx';
 export { default as Stat } from './Stat/Stat.jsx';
 export { default as Code } from './Code/Code.jsx';
+export { default as EmptyState } from './EmptyState/EmptyState.jsx';
