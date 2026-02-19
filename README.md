@@ -289,6 +289,18 @@ showInfo('New version available', 'Update', { duration: 8000 });
 <Divider.Horizontal spacing="md" />            // Horizontal shorthand
 <Divider.Vertical height={100} />              // Vertical shorthand
 
+// Kbd - Keyboard key representation
+<Kbd>Enter</Kbd>                               // Single key
+<Kbd size="sm">Esc</Kbd>                       // Small key
+<Kbd size="lg">Space</Kbd>                     // Large key
+<Kbd.Combo>                                    // Key combination
+  <Kbd>Ctrl</Kbd>
+  <Kbd>C</Kbd>
+</Kbd.Combo>
+<Kbd.Shortcut cmd>C</Kbd.Shortcut>            // Platform-aware: ⌘C or Ctrl+C
+<Kbd.Shortcut shift>Tab</Kbd.Shortcut>        // Shift+Tab
+<Kbd.Shortcut cmd shift>S</Kbd.Shortcut>      // ⌘⇧S or Ctrl+Shift+S
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -364,7 +376,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Skeleton/       # Loading placeholders
 │   ├── Accordion/      # Collapsible content sections
 │   ├── Tabs/           # Tabbed content interface
-│   └── Divider/        # Visual content separators
+│   ├── Divider/        # Visual content separators
+│   └── Kbd/            # Keyboard key representations
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
