@@ -1,0 +1,174 @@
+/**
+ * Skeleton Component Styles
+ *
+ * Design tokens used:
+ * --color-gray-200: Base skeleton color
+ * --color-gray-300: Highlight color for animation
+ * --border-radius-sm, md: Border radius
+ * --spacing-xs, sm, md: Sizing
+ */
+
+/* Base Skeleton */
+.l100-skeleton {
+  display: inline-block;
+  background-color: var(--color-gray-200, #e2e8f0);
+  border-radius: var(--border-radius-sm, 0.25rem);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animation */
+.l100-skeleton--animated {
+  animation: l100-skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes l100-skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Shimmer effect overlay */
+.l100-skeleton--animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gray-100, #f1f5f9) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: l100-skeleton-shimmer 2s infinite;
+}
+
+@keyframes l100-skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Variant: Text (default) */
+.l100-skeleton--text {
+  height: 1em;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+.l100-skeleton--text:last-child {
+  margin-bottom: 0;
+}
+
+/* Variant: Circle */
+.l100-skeleton--circle {
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Variant: Rectangle */
+.l100-skeleton--rectangle {
+  border-radius: var(--border-radius-md, 0.375rem);
+}
+
+/* Variant: Card */
+.l100-skeleton--card {
+  border-radius: var(--border-radius-md, 0.5rem);
+  padding: var(--spacing-md, 1rem);
+  width: 100%;
+  min-height: 100px;
+}
+
+/* Text Group */
+.l100-skeleton__text-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.l100-skeleton__text-group .l100-skeleton {
+  margin-bottom: 0.5em;
+}
+
+.l100-skeleton__text-group .l100-skeleton:last-child {
+  margin-bottom: 0;
+}
+
+/* Card Container */
+.l100-skeleton__card {
+  background-color: var(--color-surface, white);
+  border-radius: var(--border-radius-md, 0.5rem);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.l100-skeleton__card > .l100-skeleton--card {
+  background-color: transparent;
+}
+
+/* Article Layout */
+.l100-skeleton__article {
+  width: 100%;
+  max-width: 600px;
+}
+
+.l100-skeleton__article .l100-skeleton--rectangle {
+  border-radius: var(--border-radius-md, 0.5rem);
+}
+
+/* List Item Layout */
+.l100-skeleton__list-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm, 0.75rem) 0;
+  width: 100%;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .l100-skeleton--animated {
+    animation: none;
+    opacity: 0.7;
+  }
+
+  .l100-skeleton--animated::after {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .l100-skeleton {
+    background-color: currentColor;
+    opacity: 0.3;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .l100-skeleton {
+    background-color: var(--color-gray-700, #334155);
+  }
+
+  .l100-skeleton--animated::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-gray-600, #475569) 50%,
+      transparent 100%
+    );
+  }
+
+  .l100-skeleton__card {
+    background-color: var(--color-gray-800, #1e293b);
+  }
+}

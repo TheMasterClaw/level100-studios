@@ -13,3 +13,4 @@ export { ToastProvider, useToastContext } from './Toast/ToastProvider.jsx';
 export { useToast } from './Toast/useToast.js';
 export { default as Spinner } from './Spinner/Spinner.jsx';
 export { default as Progress } from './Progress/Progress.jsx';
+export { default as Skeleton } from './Skeleton/Skeleton.jsx';

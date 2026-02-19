@@ -238,6 +238,20 @@ showInfo('New version available', 'Update', { duration: 8000 });
 <Progress value={50} size="large" showLabel /> // Large size with label
 <Progress value={25} variant="warning" />      // Warning color
 <Progress value={90} variant="error" />        // Error color
+
+// Skeleton - Loading placeholder
+<Skeleton />                                   // Basic text skeleton
+<Skeleton width="60%" height={20} />          // Custom dimensions
+<Skeleton variant="circle" size={40} />       // Circle (avatar placeholder)
+<Skeleton.Circle size={50} />                 // Circle shorthand
+<Skeleton.Text lines={3} />                   // Multiple text lines
+<Skeleton.Card>                               // Card container
+  <Skeleton.Circle size={40} />
+  <Skeleton width="80%" />
+</Skeleton.Card>
+<Skeleton.Article hasImage textLines={5} />   // Article layout
+<Skeleton.ListItem showAvatar lines={2} />    // List item layout
+<Skeleton animated={false} />                 // Disable animation
 ```
 
 ### Design Tokens
@@ -290,7 +304,9 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Modal/          # Dialog and overlay component
 │   ├── Tooltip/        # Hover information tooltips
 │   ├── Toast/          # Notification toasts and alerts
-│   └── Spinner/        # Loading indicators
+│   ├── Spinner/        # Loading indicators
+│   ├── Progress/       # Progress bars
+│   └── Skeleton/       # Loading placeholders
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
