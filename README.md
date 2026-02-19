@@ -434,6 +434,33 @@ const x = 1;
 <EmptyState.Error message="Failed" onRetry={retry} />     // Pre-built: error
 <EmptyState.NotFound onBack={goBack} />                   // Pre-built: 404
 
+// Alert - Important messages and notifications
+<Alert severity="info">This is informational</Alert>      // Info alert
+<Alert severity="success">Operation successful</Alert>     // Success alert
+<Alert severity="warning">Please review</Alert>            // Warning alert
+<Alert severity="error">Something went wrong</Alert>       // Error alert
+
+<Alert severity="success" title="Success!">                // With title
+  Your changes have been saved.
+</Alert>
+
+<Alert severity="warning" onClose={handleClose}>           // Dismissible
+  Please review your settings.
+</Alert>
+
+<Alert                                                     // With action
+  severity="error"
+  title="Connection failed"
+  action={{ label: 'Retry', onClick: handleRetry }}
+>
+  Unable to connect to the server.
+</Alert>
+
+<Alert.Group>                                             // Alert group
+  <Alert severity="info">First message</Alert>
+  <Alert severity="success">Second message</Alert>
+</Alert.Group>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -517,7 +544,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Checkbox/       # Multi-select options
 │   ├── Stat/           # Statistics and metrics display
 │   ├── Code/           # Inline code and code blocks
-│   └── EmptyState/     # Empty list/page states
+│   ├── EmptyState/     # Empty list/page states
+│   └── Alert/          # Important messages and notifications
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
