@@ -1,0 +1,200 @@
+/**
+ * Progress Component Styles
+ * 
+ * Design tokens used:
+ * --color-primary-500: Main progress color
+ * --color-primary-400: Hover/animated states
+ * --color-success-500: Success state
+ * --color-warning-500: Warning state  
+ * --color-error-500: Error state
+ * --color-gray-200: Track background
+ * --color-gray-400: Label text
+ * --spacing-xs, sm, md: Sizing
+ * --border-radius-sm, md: Border radius
+ * --font-size-sm, md: Typography
+ */
+
+/* Base Progress Container */
+.l100-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm, 0.5rem);
+  width: 100%;
+}
+
+.l100-progress--indeterminate {
+  /* No special styles needed, handled by bar */
+}
+
+/* Progress Track (background) */
+.l100-progress__track {
+  flex: 1;
+  height: var(--spacing-md, 1rem);
+  background-color: var(--color-gray-200, #e2e8f0);
+  border-radius: var(--border-radius-md, 0.375rem);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Progress Bar (fill) */
+.l100-progress__bar {
+  height: 100%;
+  background-color: var(--color-primary-500, #6366f1);
+  border-radius: var(--border-radius-md, 0.375rem);
+  transition: width 0.3s ease, background-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Size Variants */
+.l100-progress--small .l100-progress__track {
+  height: 0.5rem;
+}
+
+.l100-progress--small .l100-progress__bar {
+  border-radius: var(--border-radius-sm, 0.25rem);
+}
+
+.l100-progress--medium .l100-progress__track {
+  height: var(--spacing-md, 1rem);
+}
+
+.l100-progress--large .l100-progress__track {
+  height: 1.5rem;
+}
+
+.l100-progress--large .l100-progress__bar {
+  border-radius: var(--border-radius-md, 0.5rem);
+}
+
+/* Color Variants */
+.l100-progress__bar--default {
+  background-color: var(--color-primary-500, #6366f1);
+}
+
+.l100-progress__bar--primary {
+  background-color: var(--color-primary-500, #6366f1);
+}
+
+.l100-progress__bar--success {
+  background-color: var(--color-success-500, #22c55e);
+}
+
+.l100-progress__bar--warning {
+  background-color: var(--color-warning-500, #f59e0b);
+}
+
+.l100-progress__bar--error {
+  background-color: var(--color-error-500, #ef4444);
+}
+
+/* Striped Pattern */
+.l100-progress__bar--striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* Striped Animation */
+.l100-progress__bar--animated {
+  animation: l100-progress-stripes 1s linear infinite;
+}
+
+@keyframes l100-progress-stripes {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Indeterminate Animation */
+.l100-progress__bar--indeterminate {
+  width: 30% !important;
+  animation: l100-progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+@keyframes l100-progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(233%); /* (100% - 30%) / 30% * 100% ≈ 233% */
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Label Styles */
+.l100-progress__label {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-gray-400, #64748b);
+  font-weight: 500;
+  white-space: nowrap;
+  min-width: 2.5rem;
+  text-align: right;
+}
+
+.l100-progress--large .l100-progress__label {
+  font-size: var(--font-size-md, 1rem);
+}
+
+/* Label Position: Top */
+.l100-progress:has(.l100-progress__label:first-child) {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs, 0.25rem);
+}
+
+.l100-progress:has(.l100-progress__label:first-child) .l100-progress__label {
+  text-align: left;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .l100-progress__track {
+    border: 1px solid currentColor;
+  }
+  
+  .l100-progress__bar {
+    border-right: 1px solid currentColor;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .l100-progress__bar {
+    transition: none;
+  }
+  
+  .l100-progress__bar--animated,
+  .l100-progress__bar--indeterminate {
+    animation: none;
+  }
+  
+  .l100-progress__bar--indeterminate {
+    width: 100% !important;
+    opacity: 0.5;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .l100-progress__track {
+    background-color: var(--color-gray-700, #334155);
+  }
+  
+  .l100-progress__label {
+    color: var(--color-gray-300, #cbd5e1);
+  }
+}

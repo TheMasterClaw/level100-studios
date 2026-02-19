@@ -226,6 +226,18 @@ showInfo('New version available', 'Update', { duration: 8000 });
 <Spinner variant="success" label="Saving..." /> // With label
 <Spinner centered />                           // Centered in container
 <Spinner variant="light" centered label="Loading..." /> // Light variant, centered with label
+
+// Progress - Completion status indicator
+<Progress value={45} />                        // Basic progress (45%)
+<Progress value={75} showLabel />              // With percentage label
+<Progress value={30} label="Uploading..." />   // Custom label text
+<Progress value={100} variant="success" label="Complete!" /> // Success state
+<Progress indeterminate label="Processing..." /> // Indeterminate mode
+<Progress value={60} striped animated />       // Striped animated bar
+<Progress value={50} size="small" />           // Small size
+<Progress value={50} size="large" showLabel /> // Large size with label
+<Progress value={25} variant="warning" />      // Warning color
+<Progress value={90} variant="error" />        // Error color
 ```
 
 ### Design Tokens
