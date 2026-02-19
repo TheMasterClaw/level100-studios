@@ -27,3 +27,4 @@ export { default as Code } from './Code/Code.jsx';
 export { default as EmptyState } from './EmptyState/EmptyState.jsx';
 export { default as Alert } from './Alert/Alert.jsx';
 export { default as Timeline } from './Timeline/Timeline.jsx';
+export { default as Table } from './Table/Table.jsx';

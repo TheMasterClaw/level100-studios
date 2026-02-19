@@ -495,6 +495,41 @@ const x = 1;
   />
 </Timeline>
 
+// Table - Display tabular data
+<Table>                                                   // Basic table
+  <Table.Head>
+    <Table.Row>
+      <Table.Header>Name</Table.Header>
+      <Table.Header>Email</Table.Header>
+      <Table.Header sortable sortDirection="asc">Role</Table.Header>
+    </Table.Row>
+  </Table.Head>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>John Doe</Table.Cell>
+      <Table.Cell>john@example.com</Table.Cell>
+      <Table.Cell>Admin</Table.Cell>
+    </Table.Row>
+    <Table.Row selected>
+      <Table.Cell>Jane Smith</Table.Cell>
+      <Table.Cell>jane@example.com</Table.Cell>
+      <Table.Cell>User</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+<Table.Simple                                             // Data-driven
+  columns={[
+    { key: 'name', title: 'Name' },
+    { key: 'email', title: 'Email' },
+    { key: 'role', title: 'Role', render: (v) => <Badge>{v}</Badge> },
+  ]}
+  data={[
+    { name: 'John', email: 'john@example.com', role: 'Admin' },
+    { name: 'Jane', email: 'jane@example.com', role: 'User' },
+  ]}
+/>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -580,7 +615,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Code/           # Inline code and code blocks
 │   ├── EmptyState/     # Empty list/page states
 │   ├── Alert/          # Important messages and notifications
-│   └── Timeline/       # Chronological events display
+│   ├── Timeline/       # Chronological events display
+│   └── Table/          # Tabular data display
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation

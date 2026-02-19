@@ -1,0 +1,191 @@
+/**
+ * Table Component Styles
+ *
+ * Design tokens used:
+ * --color-gray-100: Header background
+ * --color-gray-200: Border color
+ * --color-gray-500: Empty text
+ * --color-gray-600: Cell text
+ * --color-gray-900: Header text
+ * --color-primary-50: Selected row
+ * --spacing-sm, md: Padding
+ * --border-radius-md: Border radius
+ */
+
+/* Table Wrapper */
+.l100-table__wrapper {
+  overflow-x: auto;
+  border-radius: var(--border-radius-md, 0.5rem);
+  border: 1px solid var(--color-gray-200, #e2e8f0);
+}
+
+/* Table */
+.l100-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm, 0.875rem);
+  text-align: left;
+}
+
+/* Table Head */
+.l100-table__head {
+  background-color: var(--color-gray-50, #f8fafc);
+}
+
+/* Table Header Cell */
+.l100-table__header {
+  padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1rem);
+  font-weight: 600;
+  color: var(--color-gray-900, #0f172a);
+  border-bottom: 1px solid var(--color-gray-200, #e2e8f0);
+  white-space: nowrap;
+}
+
+/* Sortable Header */
+.l100-table__header--sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.l100-table__header--sortable:hover {
+  background-color: var(--color-gray-100, #f1f5f9);
+}
+
+.l100-table__header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs, 0.25rem);
+}
+
+.l100-table__sort-indicator {
+  font-size: 0.625rem;
+  color: var(--color-gray-400, #94a3b8);
+}
+
+.l100-table__header--sort-asc .l100-table__sort-indicator,
+.l100-table__header--sort-desc .l100-table__sort-indicator {
+  color: var(--color-primary-500, #6366f1);
+}
+
+/* Table Body */
+.l100-table__body {
+  background-color: white;
+}
+
+/* Table Row */
+.l100-table__row {
+  border-bottom: 1px solid var(--color-gray-200, #e2e8f0);
+  transition: background-color 0.15s ease;
+}
+
+.l100-table__row:last-child {
+  border-bottom: none;
+}
+
+.l100-table__row:hover {
+  background-color: var(--color-gray-50, #f8fafc);
+}
+
+.l100-table__row--selected {
+  background-color: var(--color-primary-50, #eef2ff);
+}
+
+.l100-table__row--selected:hover {
+  background-color: var(--color-primary-100, #e0e7ff);
+}
+
+/* Table Cell */
+.l100-table__cell {
+  padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1rem);
+  color: var(--color-gray-600, #475569);
+  vertical-align: middle;
+}
+
+/* Empty State */
+.l100-table__empty {
+  padding: var(--spacing-lg, 2rem);
+  text-align: center;
+  color: var(--color-gray-500, #64748b);
+  font-size: var(--font-size-sm, 0.875rem);
+  background-color: var(--color-gray-50, #f8fafc);
+  border-radius: var(--border-radius-md, 0.5rem);
+  border: 1px dashed var(--color-gray-300, #cbd5e1);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .l100-table__wrapper {
+    border-color: var(--color-gray-700, #334155);
+  }
+
+  .l100-table__head {
+    background-color: var(--color-gray-800, #1e293b);
+  }
+
+  .l100-table__header {
+    color: var(--color-gray-200, #e2e8f0);
+    border-color: var(--color-gray-700, #334155);
+  }
+
+  .l100-table__header--sortable:hover {
+    background-color: var(--color-gray-700, #334155);
+  }
+
+  .l100-table__body {
+    background-color: var(--color-gray-900, #0f172a);
+  }
+
+  .l100-table__row {
+    border-color: var(--color-gray-700, #334155);
+  }
+
+  .l100-table__row:hover {
+    background-color: var(--color-gray-800, #1e293b);
+  }
+
+  .l100-table__row--selected {
+    background-color: var(--color-primary-900, #312e81);
+  }
+
+  .l100-table__row--selected:hover {
+    background-color: var(--color-primary-800, #3730a3);
+  }
+
+  .l100-table__cell {
+    color: var(--color-gray-300, #cbd5e1);
+  }
+
+  .l100-table__empty {
+    background-color: var(--color-gray-800, #1e293b);
+    border-color: var(--color-gray-700, #334155);
+    color: var(--color-gray-400, #94a3b8);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .l100-table__wrapper {
+    border-width: 2px;
+  }
+
+  .l100-table__header,
+  .l100-table__cell {
+    border-bottom-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .l100-table__row {
+    transition: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .l100-table__wrapper {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
