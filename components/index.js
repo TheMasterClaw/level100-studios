@@ -30,3 +30,4 @@ export { default as Timeline } from './Timeline/Timeline.jsx';
 export { default as Table } from './Table/Table.jsx';
 export { default as Pagination } from './Pagination/Pagination.jsx';
 export { default as Menu } from './Menu/Menu.jsx';
+export { default as Slider } from './Slider/Slider.jsx';

@@ -588,6 +588,40 @@ const x = 1;
   </Menu.Content>
 </Menu>
 
+// Slider - Select a value from a range
+<Slider value={50} onChange={setValue} />                    // Basic slider
+
+<Slider                                                      // Custom range
+  min={0}
+  max={100}
+  step={10}
+  value={value}
+  onChange={setValue}
+/>
+
+<Slider                                                      // With marks
+  value={value}
+  onChange={setValue}
+  marks={[
+    { value: 0, label: '0%' },
+    { value: 50, label: '50%' },
+    { value: 100, label: '100%' },
+  ]}
+/>
+
+<Slider                                                      // Custom formatter
+  value={volume}
+  onChange={setVolume}
+  valueFormatter={(v) => `${v}dB`}
+/>
+
+<Slider disabled value={50} />                              // Disabled
+
+<Slider.Range                                                // Range slider
+  value={[20, 80]}
+  onChange={([start, end]) => setRange([start, end])}
+/>
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -676,7 +710,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Timeline/       # Chronological events display
 │   ├── Table/          # Tabular data display
 │   ├── Pagination/     # Pagination navigation
-│   └── Menu/           # Dropdown menus
+│   ├── Menu/           # Dropdown menus
+│   └── Slider/         # Value range sliders
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation
