@@ -277,6 +277,18 @@ showInfo('New version available', 'Update', { duration: 8000 });
   <Tabs.Content value="tab3">Content for tab 3</Tabs.Content>
 </Tabs>
 
+// Divider - Visual content separator
+<Divider />                                    // Basic horizontal divider
+<Divider>OR</Divider>                          // Divider with text
+<Divider variant="dashed" />                   // Dashed style
+<Divider variant="dotted" />                   // Dotted style
+<Divider thickness="thick" />                  // Thick line
+<Divider spacing="lg" />                       // Large spacing
+<Divider orientation="vertical" />             // Vertical divider
+<Divider.Text>Section Title</Divider.Text>     // Text divider shorthand
+<Divider.Horizontal spacing="md" />            // Horizontal shorthand
+<Divider.Vertical height={100} />              // Vertical shorthand
+
 // Tabs - Vertical orientation
 <Tabs orientation="vertical" defaultValue="tab1">
   <Tabs.List>
@@ -351,7 +363,8 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Progress/       # Progress bars
 │   ├── Skeleton/       # Loading placeholders
 │   ├── Accordion/      # Collapsible content sections
-│   └── Tabs/           # Tabbed content interface
+│   ├── Tabs/           # Tabbed content interface
+│   └── Divider/        # Visual content separators
 ├── design-tokens/       # Colors, typography, spacing
 ├── brand/              # Logo, guidelines, voice
 └── docs/               # Documentation

@@ -16,3 +16,4 @@ export { default as Progress } from './Progress/Progress.jsx';
 export { default as Skeleton } from './Skeleton/Skeleton.jsx';
 export { default as Accordion } from './Accordion/Accordion.jsx';
 export { default as Tabs } from './Tabs/Tabs.jsx';
+export { default as Divider } from './Divider/Divider.jsx';

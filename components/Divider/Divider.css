@@ -1,0 +1,218 @@
+/**
+ * Divider Component Styles
+ *
+ * Design tokens used:
+ * --color-gray-200: Default divider color
+ * --color-gray-300: Hover/active states
+ * --color-gray-500: Text color
+ * --spacing-xs, sm, md, lg: Spacing values
+ * --border-radius-sm: Border radius for content
+ */
+
+/* Base Divider */
+.l100-divider {
+  display: flex;
+  align-items: center;
+  color: var(--color-gray-500, #64748b);
+}
+
+/* Horizontal Divider */
+.l100-divider--horizontal {
+  flex-direction: row;
+  width: 100%;
+}
+
+.l100-divider--horizontal::before,
+.l100-divider--horizontal::after {
+  content: '';
+  flex: 1;
+  border-top-style: solid;
+  border-top-color: var(--color-gray-200, #e2e8f0);
+}
+
+/* Vertical Divider */
+.l100-divider--vertical {
+  flex-direction: column;
+  height: 100%;
+  min-height: 1rem;
+}
+
+.l100-divider--vertical::before,
+.l100-divider--vertical::after {
+  content: '';
+  flex: 1;
+  border-left-style: solid;
+  border-left-color: var(--color-gray-200, #e2e8f0);
+}
+
+/* Variants */
+
+/* Solid */
+.l100-divider--solid.l100-divider--horizontal::before,
+.l100-divider--solid.l100-divider--horizontal::after {
+  border-top-style: solid;
+}
+
+.l100-divider--solid.l100-divider--vertical::before,
+.l100-divider--solid.l100-divider--vertical::after {
+  border-left-style: solid;
+}
+
+/* Dashed */
+.l100-divider--dashed.l100-divider--horizontal::before,
+.l100-divider--dashed.l100-divider--horizontal::after {
+  border-top-style: dashed;
+}
+
+.l100-divider--dashed.l100-divider--vertical::before,
+.l100-divider--dashed.l100-divider--vertical::after {
+  border-left-style: dashed;
+}
+
+/* Dotted */
+.l100-divider--dotted.l100-divider--horizontal::before,
+.l100-divider--dotted.l100-divider--horizontal::after {
+  border-top-style: dotted;
+}
+
+.l100-divider--dotted.l100-divider--vertical::before,
+.l100-divider--dotted.l100-divider--vertical::after {
+  border-left-style: dotted;
+}
+
+/* Thickness */
+
+/* Thin */
+.l100-divider--thin.l100-divider--horizontal::before,
+.l100-divider--thin.l100-divider--horizontal::after {
+  border-top-width: 1px;
+}
+
+.l100-divider--thin.l100-divider--vertical::before,
+.l100-divider--thin.l100-divider--vertical::after {
+  border-left-width: 1px;
+}
+
+/* Medium */
+.l100-divider--medium.l100-divider--horizontal::before,
+.l100-divider--medium.l100-divider--horizontal::after {
+  border-top-width: 2px;
+}
+
+.l100-divider--medium.l100-divider--vertical::before,
+.l100-divider--medium.l100-divider--vertical::after {
+  border-left-width: 2px;
+}
+
+/* Thick */
+.l100-divider--thick.l100-divider--horizontal::before,
+.l100-divider--thick.l100-divider--horizontal::after {
+  border-top-width: 4px;
+}
+
+.l100-divider--thick.l100-divider--vertical::before,
+.l100-divider--thick.l100-divider--vertical::after {
+  border-left-width: 4px;
+}
+
+/* Spacing */
+
+/* No spacing */
+.l100-divider--spacing-none {
+  margin: 0;
+}
+
+/* Small spacing */
+.l100-divider--spacing-sm {
+  margin: var(--spacing-sm, 0.5rem) 0;
+}
+
+.l100-divider--spacing-sm.l100-divider--vertical {
+  margin: 0 var(--spacing-sm, 0.5rem);
+}
+
+/* Medium spacing (default) */
+.l100-divider--spacing-md {
+  margin: var(--spacing-md, 1rem) 0;
+}
+
+.l100-divider--spacing-md.l100-divider--vertical {
+  margin: 0 var(--spacing-md, 1rem);
+}
+
+/* Large spacing */
+.l100-divider--spacing-lg {
+  margin: var(--spacing-lg, 1.5rem) 0;
+}
+
+.l100-divider--spacing-lg.l100-divider--vertical {
+  margin: 0 var(--spacing-lg, 1.5rem);
+}
+
+/* Content styling */
+.l100-divider__content {
+  padding: 0 var(--spacing-md, 1rem);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-500, #64748b);
+  white-space: nowrap;
+}
+
+.l100-divider--vertical .l100-divider__content {
+  padding: var(--spacing-md, 1rem) 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* With content - adjust pseudo-elements */
+.l100-divider--with-content.l100-divider--horizontal::before,
+.l100-divider--with-content.l100-divider--horizontal::after {
+  flex: 1;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .l100-divider--horizontal::before,
+  .l100-divider--horizontal::after {
+    border-top-color: currentColor;
+  }
+
+  .l100-divider--vertical::before,
+  .l100-divider--vertical::after {
+    border-left-color: currentColor;
+  }
+
+  .l100-divider--thin.l100-divider--horizontal::before,
+  .l100-divider--thin.l100-divider--horizontal::after {
+    border-top-width: 2px;
+  }
+
+  .l100-divider--thin.l100-divider--vertical::before,
+  .l100-divider--thin.l100-divider--vertical::after {
+    border-left-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .l100-divider {
+    transition: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .l100-divider--horizontal::before,
+  .l100-divider--horizontal::after {
+    border-top-color: var(--color-gray-700, #334155);
+  }
+
+  .l100-divider--vertical::before,
+  .l100-divider--vertical::after {
+    border-left-color: var(--color-gray-700, #334155);
+  }
+
+  .l100-divider__content {
+    color: var(--color-gray-400, #94a3b8);
+  }
+}
