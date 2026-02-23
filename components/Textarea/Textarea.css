@@ -1,0 +1,101 @@
+.l100-textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.l100-textarea__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.l100-textarea__required {
+  color: #ef4444;
+}
+
+.l100-textarea {
+  font-family: inherit;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #e2e8f0;
+  transition: all 0.2s ease;
+  width: 100%;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.l100-textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.l100-textarea--no-resize {
+  resize: none;
+}
+
+.l100-textarea::placeholder {
+  color: #64748b;
+}
+
+.l100-textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.l100-textarea--small {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.l100-textarea--medium {
+  padding: 10px 14px;
+  font-size: 16px;
+}
+
+.l100-textarea--large {
+  padding: 12px 16px;
+  font-size: 18px;
+}
+
+/* Error states */
+.l100-textarea--error,
+.l100-textarea--over-limit {
+  border-color: #ef4444;
+}
+
+.l100-textarea--error:focus,
+.l100-textarea--over-limit:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Footer */
+.l100-textarea__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.l100-textarea__error {
+  font-size: 13px;
+  color: #ef4444;
+  flex: 1;
+}
+
+.l100-textarea__counter {
+  font-size: 12px;
+  color: #64748b;
+  margin-left: auto;
+}
+
+.l100-textarea__counter--error {
+  color: #ef4444;
+  font-weight: 500;
+}

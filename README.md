@@ -8,9 +8,10 @@ Parent organization — shared components, design system, branding, and document
 
 ```jsx
 import { 
-  Button, Card, Input, Select, Switch, Avatar, Badge, 
+  Button, Card, Input, Textarea, Select, Switch, Avatar, Badge, 
   Modal, ModalHeader, ModalBody, ModalFooter, 
-  Tooltip, ToastProvider, useToastContext, Spinner 
+  Tooltip, ToastProvider, useToastContext, Spinner,
+  Stack, HStack, VStack, Container, ThemeProvider, ThemeToggle, useTheme
 } from '@level100/studios';
 
 // Button
@@ -640,6 +641,93 @@ const x = 1;
     { value: '3', label: 'Settings', content: 'Settings content', icon: '⚙️' },
   ]}
 />
+
+// Textarea - Multi-line text input
+<Textarea
+  label="Description"
+  placeholder="Enter your description..."
+  rows={4}
+/>
+
+<Textarea
+  label="Bio"
+  maxLength={500}
+  helperText="Maximum 500 characters"
+  resize={false}
+/>
+
+<Textarea
+  label="Feedback"
+  error="This field is required"
+/>
+
+// Stack - Layout primitive for spacing
+<Stack gap={4}>                                          // Vertical stack (default)
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</Stack>
+
+<Stack direction="horizontal" gap={2}>                   // Horizontal stack
+  <Button>Save</Button>
+  <Button variant="ghost">Cancel</Button>
+</Stack>
+
+<HStack gap={4} align="center">                          // Shorthand for horizontal
+  <Avatar />
+  <div>User Name</div>
+</HStack>
+
+<VStack gap={2}>                                         // Shorthand for vertical
+  <Input label="Name" />
+  <Input label="Email" />
+</VStack>
+
+<Stack direction="horizontal" gap={4} wrap>             // Wrapping stack
+  {items.map(item => <Chip key={item}>{item}</Chip>)}
+</Stack>
+
+// Container - Content wrapper with max-width
+<Container size="md">                                    // Centered content
+  <h1>Page Title</h1>
+  <p>Page content...</p>
+</Container>
+
+<Container size="full">                                  // Full width with padding
+  <div>Full-width section</div>
+</Container>
+
+// ThemeProvider - Dark/light mode support
+function App() {
+  return (
+    <ThemeProvider defaultTheme="dark" storageKey="l100-theme">
+      <YourApp />
+    </ThemeProvider>
+  );
+}
+
+// ThemeToggle - Toggle between themes
+function Header() {
+  return (
+    <header>
+      <ThemeToggle size="medium" variant="icon" />
+    </header>
+  );
+}
+
+// useTheme hook
+function MyComponent() {
+  const { theme, setTheme, toggleTheme, resolvedTheme } = useTheme();
+  
+  return (
+    <div>
+      <p>Current theme: {resolvedTheme}</p>
+      <button onClick={() => setTheme('light')}>Light</button>
+      <button onClick={() => setTheme('dark')}>Dark</button>
+      <button onClick={toggleTheme}>Toggle</button>
+    </div>
+  );
+}
 ```
 
 ### Design Tokens
@@ -685,6 +773,10 @@ See [brand/guidelines.md](./brand/guidelines.md)
 │   ├── Button/
 │   ├── Card/
 │   ├── Input/
+│   ├── Textarea/       # Multi-line text input
+│   ├── Stack/          # Layout spacing primitive
+│   ├── Container/      # Content wrapper
+│   ├── ThemeProvider/  # Dark/light mode provider
 │   ├── Select/         # Dropdown selection component
 │   ├── Switch/         # Toggle switch component
 │   ├── Avatar/

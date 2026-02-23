@@ -1,0 +1,40 @@
+.l100-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--l100-container-padding, 1rem);
+  padding-right: var(--l100-container-padding, 1rem);
+}
+
+@media (min-width: 640px) {
+  .l100-container {
+    --l100-container-padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .l100-container {
+    --l100-container-padding: 2rem;
+  }
+}
+
+/* Size variants */
+.l100-container--sm {
+  max-width: 640px;
+}
+
+.l100-container--md {
+  max-width: 768px;
+}
+
+.l100-container--lg {
+  max-width: 1024px;
+}
+
+.l100-container--xl {
+  max-width: 1280px;
+}
+
+.l100-container--full {
+  max-width: none;
+}

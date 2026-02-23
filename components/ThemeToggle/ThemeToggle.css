@@ -1,0 +1,77 @@
+.l100-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+  color: var(--l100-text-secondary, #94a3b8);
+}
+
+.l100-theme-toggle:hover {
+  color: var(--l100-text-primary, #f8fafc);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.l100-theme-toggle__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sizes */
+.l100-theme-toggle--small {
+  padding: 6px;
+}
+
+.l100-theme-toggle--small .l100-theme-toggle__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.l100-theme-toggle--medium {
+  padding: 8px;
+}
+
+.l100-theme-toggle--medium .l100-theme-toggle__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.l100-theme-toggle--large {
+  padding: 10px;
+}
+
+.l100-theme-toggle--large .l100-theme-toggle__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Variants */
+.l100-theme-toggle--default {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.l100-theme-toggle--default:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.l100-theme-toggle--ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.l100-theme-toggle--icon {
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.l100-theme-toggle__label {
+  font-size: 14px;
+}

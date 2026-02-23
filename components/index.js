@@ -31,3 +31,10 @@ export { default as Table } from './Table/Table.jsx';
 export { default as Pagination } from './Pagination/Pagination.jsx';
 export { default as Menu } from './Menu/Menu.jsx';
 export { default as Slider } from './Slider/Slider.jsx';
+
+// New components
+export { default as Textarea } from './Textarea/Textarea.jsx';
+export { default as Stack, HStack, VStack } from './Stack/Stack.jsx';
+export { default as Container } from './Container/Container.jsx';
+export { ThemeProvider, useTheme } from './ThemeProvider/ThemeProvider.jsx';
+export { default as ThemeToggle } from './ThemeToggle/ThemeToggle.jsx';
